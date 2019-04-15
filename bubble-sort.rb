@@ -1,14 +1,14 @@
 def bubble_sort (arr)
-  full_sorted = false    #this will only be true when the whole array is sorted
+  full_sorted = false   #this will only be true when the whole array is sorted
   until full_sorted do
-    swaps = 0    #counter to check how many swaps were made during this iteration
+    swaps = 0   #counter to check how many swaps were made during this iteration
     for x in (1...arr.length)
-      if arr[x-1] > arr[x]    #if the left item is bigger than the right item, they swap places and swaps counter is incremented
+      if (arr[x-1] <=> arr[x]) > 0  #if the left item is bigger than the right item, the spaceship comparison returns 1, then they swap places and swaps counter is incremented
         arr[x-1], arr[x] = arr[x], arr[x-1]
         swaps += 1
       end
     end
-    if swaps == 0    #if no swaps were made, then it's sorted and quits the until loop
+    if swaps == 0   #if no swaps were made, then it's sorted and quits the until loop
       full_sorted = true
     end
   end
