@@ -12,7 +12,7 @@ def bubble_sort (arr)
       full_sorted = true
     end
   end
-  return arr
+  arr
 end
 
 p bubble_sort [3,9,7,8,5,7,8,4,2,3,6,2,6,78,8,76,3,4,54,6,4,12,1]
