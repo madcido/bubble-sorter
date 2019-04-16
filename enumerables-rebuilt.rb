@@ -21,21 +21,18 @@ module Enumerable
   end
 
   def my_all?
-    result = true
-    self.my_each {|x| result &&= yield(x)}
-    result
+    self.my_each {|x| return false unless yield(x)}
+    true
   end
 
   def my_any?
-    result = false
-    self.my_each {|x| result ||= yield(x)}
-    result
+    self.my_each {|x| return true if yield(x)}
+    false
   end
 
   def my_none?
-    result = false
-    self.my_each {|x| result ||= yield(x)}
-    !result
+    self.my_each {|x| return false if yield(x)}
+    true
   end
 
   def my_count (arg = (no_arg = true))
@@ -76,7 +73,7 @@ module Enumerable
 end
 
 
-#testing as assigned
+testing as assigned
 def multiply_els (arr)
   arr.my_inject {|product, x| product * x }
 end
