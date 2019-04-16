@@ -49,7 +49,7 @@ module Enumerable
 
   def my_inject (arg = (no_arg = true))
     if no_arg
-      memo = self.to_a[0]
+      memo = self.to_a.first
       self.my_each_with_index do|x, index|
         next if index == 0
         memo = yield(memo, x)
