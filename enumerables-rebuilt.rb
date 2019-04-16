@@ -73,9 +73,8 @@ module Enumerable
 end
 
 
-testing as assigned
+#testing as assigned
 def multiply_els (arr)
   arr.my_inject {|product, x| product * x }
 end
-
 puts multiply_els([2,4,5])
