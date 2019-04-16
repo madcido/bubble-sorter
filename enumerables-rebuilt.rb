@@ -43,7 +43,7 @@ module Enumerable
     if no_arg && block_given?
       self.my_each {|x| counter += 1 if yield(x)}
     elsif no_arg
-      counter = self.to_a.length
+      self.my_each {counter += 1}
     else
       self.my_each {|x| counter += 1 if x == arg}
     end
