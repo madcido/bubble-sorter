@@ -50,8 +50,9 @@ module Enumerable
   def my_inject (arg = (no_arg = true))
     if no_arg
       memo = self.to_a[0]
-      for i in (1...self.to_a.length)
-        memo = yield(memo, self.to_a[i])
+      self.my_each_with_index do|x, index|
+        next if index == 0
+        memo = yield(memo, x)
       end
     else
       memo = arg
@@ -78,3 +79,7 @@ def multiply_els (arr)
   arr.my_inject {|product, x| product * x }
 end
 puts multiply_els([2,4,5])
+
+puts [1,2,3,4,5].my_inject {|a,b| a+b}
+puts [1,2,3,4,5].my_inject {|a,b| a*b}
+puts [1,2,3,4,5].my_inject {|a,b| a-b}
