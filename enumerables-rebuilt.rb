@@ -47,21 +47,16 @@ module Enumerable
     counter
   end
 
-  def my_inject (arg = (no_arg = true))
-    if no_arg
-      memo = self.to_a.first
-      self.my_each_with_index do|x, index|
-        next if index == 0
-        memo = yield(memo, x)
-      end
-    else
-      memo = arg
-      self.my_each {|x| memo = yield(memo, x)}
+  def my_inject (arg = (no_arg = true; nil))
+    memo = arg
+    self.my_each do |x|
+      memo = yield(memo,x) if memo
+      memo ||= x
     end
     memo
   end
 
-  def my_map (arg = (no_arg = true))
+  def my_map (arg = (no_arg = true; nil))
     mapped = []
     if no_arg || !(arg.is_a? Proc)
       self.my_each {|x| mapped << yield(x)}
