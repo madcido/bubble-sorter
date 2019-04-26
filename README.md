@@ -4,4 +4,4 @@ First assignment: create a "bubble sorter" method that takes an array as argumen
 
 Second assignment: rebuild the Enumerable module methods
 
-Author: Fabio Carmo
+Author: <link href="https://github.com/madcido">Fabio Carmo</link>
